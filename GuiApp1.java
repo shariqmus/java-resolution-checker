@@ -15,8 +15,6 @@ import java.awt.Dimension;
 import java.util.*;
 import java.io.*;
 
-
-
 public class GuiApp1 {
  //Note: Typically the main method will be in a
  //separate class. As this is a simple one class
@@ -98,59 +96,30 @@ public class GuiApp1 {
   guiFrame.add(comboPanel, BorderLayout.NORTH);
   guiFrame.add(listPanel, BorderLayout.CENTER);
   guiFrame.add(vegFruitBut, BorderLayout.SOUTH);
-  
-  
-  
-  
-  
-  
-  // MY CODE
-  
 
+
+  // get screen resolution
   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-	double width = screenSize.getWidth();
-	double height = screenSize.getHeight();
+  double width = screenSize.getWidth();
+  double height = screenSize.getHeight();
 
-  try
+  // write to file
+  try {
+   FileWriter fw = new FileWriter("c:\\code\\java-out.txt");
+   fw.write("Width is: ");
+   fw.write(Double.toString(width));
+   fw.write(", ");
+   fw.write("Height is: ");
+   fw.write(Double.toString(height)); //\n signifies a new line
+   fw.write(".\r\n");
+   fw.close();
+  } catch (IOException ex) //Did we generate an error?
   {
-    FileWriter fw = new FileWriter("c:\\code\\java-out.txt");
-    fw.write("Width is: ");
-    fw.write(Double.toString(width));
-    fw.write(", ");
-    fw.write("Height is: ");
-    fw.write(Double.toString(height)); //\n signifies a new line
-    fw.write(".\r\n");
-    fw.close();
+   System.out.println("Could not write to file"); //Explain what happened
+   System.exit(0); //Exit gracefully
   }
 
-  catch(IOException ex) //Did we generate an error?
-  {
-    System.out.println("Could not write to file"); //Explain what happened
-    System.exit(0); //Exit gracefully
-  }
-
- /*
-  List<String> lines = Arrays.asList(Double.toString(height), Double.toString(width));
-  Path file = Paths.get("c:\\resolution.txt");
-  Files.write(file, lines, Charset.forName("UTF-8"));
-  //Files.write(file, lines, Charset.forName("UTF-8"), StandardOpenOption.APPEND);
-*/
-
-  // MY CODE
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   //make sure the JFrame is visible
   guiFrame.setVisible(true);
  }
