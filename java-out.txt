@@ -1,0 +1,1 @@
+Width is: 1920.0, Height is: 1080.0.

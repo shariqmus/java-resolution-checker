@@ -1,0 +1,1 @@
+# java-resolution-checker
